@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const { Client } = require('@elastic/elasticsearch');
@@ -9,9 +11,9 @@ const PORT = 3001;
 
 // Elasticsearch client
 const esClient = new Client({
-  node: 'https://my-elasticsearch-project-d3a2cb.es.europe-west1.gcp.elastic.cloud:443',
+  node: process.env.ELASTICSEARCH_NODE,
   auth: {
-    apiKey: 'VWM4M2VKb0JjVTZvVVI1eWttaS06YjJTSzU0WkZ5NDRCanNYMEtseFQ5Zw=='
+    apiKey: process.env.ELASTICSEARCH_API_KEY
   },
   tls: {
     rejectUnauthorized: false

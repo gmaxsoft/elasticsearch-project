@@ -22,13 +22,21 @@ Projekt wyszukiwarki produktów oparty na Elasticsearch, z backendem w Node.js i
    cd elasticsearch-project
    ```
 
-2. **Zainstaluj zależności backendu:**
+2. **Skonfiguruj zmienne środowiskowe dla backendu:**
    ```bash
    cd backend
+   cp .env-sample .env
+   ```
+   Wypełnij plik `.env` swoimi danymi Elasticsearch:
+   - `ELASTICSEARCH_NODE`: URL twojego klastra Elasticsearch
+   - `ELASTICSEARCH_API_KEY`: Twój klucz API Elasticsearch
+
+3. **Zainstaluj zależności backendu:**
+   ```bash
    npm install
    ```
 
-3. **Zainstaluj zależności frontendu:**
+4. **Zainstaluj zależności frontendu:**
    ```bash
    cd ../frontend
    npm install
