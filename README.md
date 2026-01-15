@@ -2,6 +2,25 @@
 
 Projekt wyszukiwarki produktów oparty na Elasticsearch, z backendem w Node.js i frontendem w React.js.
 
+## Technologie
+
+### Backend
+
+- **Node.js** - Środowisko uruchomieniowe JavaScript po stronie serwera, umożliwiające budowę skalowalnych aplikacji backendowych.
+- **Express.js** - Minimalistyczny i elastyczny framework webowy dla Node.js, ułatwiający tworzenie API REST i obsługę żądań HTTP.
+- **@elastic/elasticsearch** - Oficjalny klient JavaScript dla Elasticsearch, zapewniający integrację z silnikiem wyszukiwania i indeksowaniem danych.
+- **CORS** - Middleware Express.js do obsługi Cross-Origin Resource Sharing, umożliwiający komunikację między frontendem a backendem z różnych domen.
+- **dotenv** - Biblioteka do zarządzania zmiennymi środowiskowymi, pozwalająca na bezpieczne przechowywanie konfiguracji (np. kluczy API) w pliku `.env`.
+
+### Frontend
+
+- **React.js** - Biblioteka JavaScript do budowy interfejsów użytkownika, umożliwiająca tworzenie komponentów wielokrotnego użytku i zarządzanie stanem aplikacji.
+- **React Scripts** - Narzędzie do konfiguracji i uruchamiania aplikacji React z wbudowanym wsparciem dla Webpack, Babel i innych narzędzi deweloperskich.
+
+### Baza danych
+
+- **Elasticsearch** - Rozproszony silnik wyszukiwania i analizy danych, wykorzystywany do pełnotekstowego wyszukiwania produktów, autopodpowiedzi i zaawansowanych zapytań.
+
 ## Funkcje
 
 - **Wyszukiwarka produktów**: Wyszukiwanie produktów po tytule, opisie i kategorii.
@@ -82,12 +101,6 @@ elasticsearch-demo/
 
 - `GET /api/search?q=<query>` - Wyszukiwanie produktów
 - `GET /api/suggestions?q=<query>` - Pobieranie sugestii
-
-## Technologie
-
-- **Backend**: Node.js, Express.js, Elasticsearch
-- **Frontend**: React.js
-- **Baza danych**: Elasticsearch (chmura)
 
 ## Licencja
 
