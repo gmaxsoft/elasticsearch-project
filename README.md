@@ -16,6 +16,8 @@ Projekt wyszukiwarki produktów oparty na Elasticsearch, z backendem w Node.js i
 
 - **React.js** - Biblioteka JavaScript do budowy interfejsów użytkownika, umożliwiająca tworzenie komponentów wielokrotnego użytku i zarządzanie stanem aplikacji.
 - **React Scripts** - Narzędzie do konfiguracji i uruchamiania aplikacji React z wbudowanym wsparciem dla Webpack, Babel i innych narzędzi deweloperskich.
+- **Jest** - Framework testowy JavaScript używany do pisania i uruchamiania testów jednostkowych.
+- **React Testing Library** - Biblioteka do testowania komponentów React z naciskiem na testowanie zachowań użytkownika.
 
 ### Baza danych
 
@@ -81,6 +83,44 @@ Projekt wyszukiwarki produktów oparty na Elasticsearch, z backendem w Node.js i
 
 Po uruchomieniu backendu, dane produktów zostaną automatycznie zaimportowane do Elasticsearch z pliku `products.json`.
 
+## Testy jednostkowe
+
+Projekt zawiera kompleksowe testy jednostkowe dla frontendu, napisane przy użyciu React Testing Library i Jest.
+
+### Uruchomienie testów
+
+Aby uruchomić testy jednostkowe frontendu:
+
+```bash
+cd frontend
+npm test
+```
+
+Aby uruchomić testy w trybie jednorazowym (bez trybu watch):
+
+```bash
+cd frontend
+npm test -- --watchAll=false
+```
+
+### Pokrycie testami
+
+Frontend zawiera **17 testów jednostkowych**, które pokrywają następujące funkcjonalności:
+
+- **Renderowanie komponentów**: Testy sprawdzające poprawność renderowania nagłówka, pola wyszukiwania i przycisku
+- **Interakcje użytkownika**: Testy dla wpisywania tekstu, klikania w sugestie, wyszukiwania przyciskiem i klawiszem Enter
+- **Integracja z API**: Testy dla pobierania sugestii, wyszukiwania produktów, wyświetlania wyników
+- **Obsługa stanów**: Testy dla stanu ładowania, ukrywania sugestii, obsługi błędów
+- **Optymalizacja**: Testy dla debounce zapytań sugestii
+
+### Technologie testowe
+
+- **Jest** - Framework testowy JavaScript
+- **React Testing Library** - Biblioteka do testowania komponentów React
+- **@testing-library/jest-dom** - Dodatkowe matchery dla asercji DOM
+
+Testy są automatycznie uruchamiane w GitHub Actions przy każdym pushu i pull requeście.
+
 ## Struktura projektu
 
 ```
@@ -91,8 +131,13 @@ elasticsearch-demo/
 ├── frontend/
 │   ├── src/
 │   │   ├── App.js         # Główny komponent React
-│   │   └── App.css        # Stylizacja
+│   │   ├── App.test.js    # Testy jednostkowe
+│   │   ├── App.css        # Stylizacja
+│   │   └── setupTests.js  # Konfiguracja testów
 │   └── package.json       # Zależności frontendu
+├── .github/
+│   └── workflows/
+│       └── ci.yml         # Workflow GitHub Actions
 ├── products.json          # Dane produktów
 └── README.md              # Ten plik
 ```
